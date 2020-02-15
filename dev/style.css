@@ -517,6 +517,13 @@ html, body {
   border-right: 0px;
 }
 
+.history-entry {
+  font-size: 125%;
+  border: 1px outset #ffffff;
+  border-left: 0px;
+  border-right: 0px;
+}
+
 .instructional-msg {
   background-color: var(--title-bar-color);
   padding: 5px;
@@ -1338,3 +1345,131 @@ h1 {
   flex-direction: column;
   align-content: flex-start;
 }
+
+/* edit action history panel */
+
+.history-is-empty-msg {
+  margin-top: 10px;
+  opacity: 0.50;
+  text-align: center;
+  /* text-transform: uppercase; */
+  font-size: 75%;
+}
+.the-hidden-history-entry {
+  cursor: pointer;
+  padding: 5px 5px 5px 20px;
+  font-size: 12pt;
+  width: 100%;
+  border: 1px outset #ffffff;
+}
+.the-hidden-history-entry:hover {
+  color: #b30000;
+  background-color: lightgoldenrodyellow;
+}
+.the-history-title {
+  display: inline-block; 
+  padding: 5px;
+}
+.the-history-title:hover {
+  color: #b30000;
+  background-color: lightgoldenrodyellow;
+}
+.the-history-title-entry {
+  float: left;
+  width: 100%;
+}
+.the-history-title-txt {
+  cursor: pointer;
+  float: left;
+}
+.the-prev-history {
+  color: #0d0a05;
+  background-color: #f0fff3;
+}
+
+.the-suc-history {
+  color: dimgray;
+  background-color: lightgray;
+}
+.the-cur-history {
+  color: #b30000;
+  overflow-anchor: auto;
+  background-color: lightgoldenrodyellow;
+}
+
+
+.always-display-history-entry {
+  border: 1px outset #ffffff;
+  width: 100%;
+  display: grid;
+}
+.history-tab-icon {
+  cursor: pointer;
+  float: right;
+  width: 0;
+  height: 0;
+}
+.down-triangle {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #558e62;
+}
+
+.left-triangle {
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid transparent;
+  border-right: 10px solid #558e62;
+}
+
+.all-history-tab-icon-open {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid white;
+}
+
+.all-history-tab-icon-close, .undo-button {
+border-bottom: 8px solid transparent;
+border-top: 8px solid transparent;
+border-right: 10px solid white;
+}
+.redo-button {
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid transparent;
+  border-left: 10px solid white;
+}
+.redo-undo-icon {
+  display: table-cell;
+  margin-left: 10px; 
+  margin-right: 10px;
+}
+
+
+.history_button_bar {
+  text-transform: uppercase;
+  color: white;
+  padding: 3px 5px 3px 3px;
+  font-size: 10pt;
+  background-color: #678a61;
+  display: table;
+}
+.history-button {
+  cursor: pointer;
+  margin-right: 5px; 
+  display: inline-table; 
+}
+.undo-button-txt {
+ 
+ display: table-cell;
+ padding-right: 15px;
+ vertical-align: center;
+}
+
+.redo-button-txt {
+ 
+  display: table-cell;
+  padding-left: 15px;
+  vertical-align: center;
+ }
+
+
+
