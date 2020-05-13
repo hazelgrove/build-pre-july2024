@@ -7064,7 +7064,7 @@ switch(a[0]){case
 l=a[1],i=d+z(l)|0;if(i<=b)var
 m=a15;else
 var
-n=i-b|0,m=[0,gk(n,n-1|0)/2|0,0];var
+n=i-b|0,m=[0,gk(n,n+1|0)/2|0,0];var
 e=aee(i,[0,m,[0,l]]);break;case
 1:var
 t=a[2],g=aed,f=c(oq(a[1]),b,d);for(;;){if(f){var
