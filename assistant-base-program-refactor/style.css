@@ -454,6 +454,7 @@ body {
 
 .code.presentation .type-info-summary {
   display: flex;
+  gap: 0.3em;
   align-items: flex-start;
   color: white;
   padding: 2px;
@@ -758,8 +759,21 @@ body {
 
 .assistant-active .type-info-summary .HTypCode {
   border-radius: 0.3em;
-  padding: 0 0.3em 0 0.3em;
+  /*padding: 0 0 0 0.3em;*/
   background-color: rgb(68 68 68);
+}
+
+.assistant-active .type-info-summary .bidirectional {
+  color: #ccc;
+}
+
+.assistant-active .type-info-summary .consistency-symbol.inconsistent {
+  color: #f88;
+  box-shadow: none;
+}
+
+.assistant-active  .type-info-summary .consistency-symbol {
+  background-color: #0000;
 }
 
 .assistant-active .emphasize-text {
@@ -783,6 +797,9 @@ body {
   position: relative;
   align-items: stretch;
   min-height: 2.25rem;
+  /* the following properties are set for transsition animation */
+  width: 100%;
+  border-radius: 0;
 }
 
 #assistant > .hovered  {
@@ -795,6 +812,8 @@ body {
   border-radius: 0.5em;
   background-color: rgb(197, 253, 197) !important;
   box-sizing: border-box;
+  transition-property: width, border-radius;
+  transition-duration: 0.2s, 0.5s;
 }
 
 
