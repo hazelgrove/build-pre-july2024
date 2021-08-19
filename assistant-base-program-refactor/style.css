@@ -52,7 +52,9 @@
 
   /* ASSISTANT */
 
-  --ci-type-info: #c4fdc5;
+  --exp_accent: rgb(200, 255, 200);
+
+  --ci-type-info: var(--exp_accent);
   --ci-type-code: rgb(70 70 70);
   --ci-type-bidi-arrow: #ccc;
   --ci-type-inconsistent: #f88;
@@ -61,7 +63,7 @@
   --assistant-text-color: rgb(46, 46, 46);
   --assistant-shadow-color: #6667;
 
-  --suggestion-selected-background: rgb(200, 255, 200);
+  --suggestion-selected-background: var(--exp_accent);
   --suggestion-selected-top: white;
   --suggestion-selected-bottom: #242;
 
@@ -671,10 +673,6 @@ body {
   cursor: help;
 }
 
-.clickable-help-icon {
-  line-height: 0; /* HACK */
-}
-
 .HTypCode .Diff {
   text-decoration: underline;
 }
@@ -784,6 +782,7 @@ body {
 
 .assistant-active .clickable-help-icon {
   padding-right: 0.2em;
+  line-height: 0; /* HACK */
 }
 
 .assistant-active .type-info-summary {
@@ -960,9 +959,85 @@ body {
   color: var(--suggestion-type-ann-colon);
 }
 
+
+/* cursor inspector control pane */
+
+#cursor-inspector .clickable-help-icon:hover+.ci-control-pane-wrapper {
+  display:block;
+}
+
+#cursor-inspector .ci-control-pane-wrapper:hover{
+  display:block;
+}
+
+#cursor-inspector .ci-control-pane-wrapper {
+  padding-left:2em;
+  display: none;
+  z-index:100;
+  position: absolute;
+  top: 0;
+  left: 92%;
+  cursor: default;
+}
+
+#cursor-inspector .ci-control-pane {
+  overflow: hidden;
+  border-radius: 0.4em;
+  background-color: #868686e6;
+  color: var(--suggestion-info-text);
+}
+
+#cursor-inspector .ci-control-pane .mode{
+  height: 2em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  display: flex;
+  gap: 0.3em;
+  align-items: center;
+  cursor: pointer;
+}
+
+#cursor-inspector .ci-control-pane .mode:last-child{
+  background-color: #3339;
+}
+
+#cursor-inspector .ci-control-pane .mode:last-child:hover{
+  background-color: #f99;
+}
+
+#cursor-inspector .ci-control-pane .mode:hover {
+  background-color: var(--exp_accent);
+  color: black;
+}
+
+#cursor-inspector #ci-control-pane-mode-switch {
+  font-size: 0.85em;
+  height: 2rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  color: #333;
+}
+
+#cursor-inspector .key {
+  margin-left: auto;
+  font-size: 0.6rem;
+  font-weight: bold;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  border-top: 1px solid #adadad;
+  border-bottom: 1px solid #464646;
+  background-color: #7b7b7b;
+  color: var(--suggestion-info-text);
+}
+
+
 /* assistant suggestion meta-info popup */
 
 #assistant-wrapper .suggestion-info {
+  z-index:100;
   position: absolute;
   top: 0;
   left: 106%;
