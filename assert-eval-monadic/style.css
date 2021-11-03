@@ -1133,14 +1133,8 @@ h1 {
   vertical-align: top;
 }
 .DHCode .AssertIndet:after{
-  content: "△";
-  color: brown;
-  font-size: 70%;
-  vertical-align: top;
-}
-.DHCode .AssertComp:after{
   content: "?";
-  color: #BBB;
+  color: brown;
   font-size: 70%;
   vertical-align: top;
 }
@@ -1461,15 +1455,8 @@ h1 {
   position: absolute;
 }
 .AssertIndet:after{
-  content: "△";
-  color: brown;
-  font-size: 70%;
-  vertical-align: top;
-  position: absolute;
-}
-.AssertComp:after{
   content: "?";
-  color: #BBB;
+  color: brown;
   font-size: 70%;
   vertical-align: top;
   position: absolute;
@@ -1482,6 +1469,7 @@ h1 {
   color: white;
   background-color: #333;
   border-radius: 0.3em;
+  z-index: 10000000;
 }
 .UHAssert:hover .assertpop {
   display: inline-block;
