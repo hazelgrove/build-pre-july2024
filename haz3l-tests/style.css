@@ -303,6 +303,17 @@ svg {
   height: 15px;
 }
 
+#top-bar #editor-mode:hover {
+  transform: scale(110%);
+}
+
+#editor-mode .toggle-switch.active .toggle-knob{
+  filter: grayscale(1) sepia(1);
+}
+#editor-mode .toggle-switch .toggle-knob{
+  filter: grayscale(1) sepia(1) opacity(0.3);
+}
+
 /* END TOP BAR */
 
 .editor {
@@ -343,6 +354,16 @@ svg {
 
 .cell-chapter {
   padding: 1em;
+}
+.cell-chapter::first-letter {
+  color: #c7b480;
+  float: left;
+  font-family: 'Times New Roman';
+  font-size: 32px;
+  line-height: 27px;
+  padding-top: 0px;
+  padding-right: 3px;
+  padding-left: 0px;
 }
 
 .cell{
@@ -483,6 +504,9 @@ svg {
 .code .delim.text-Typ {
   color: #aee5c6;
   font-weight: bold;
+}
+.code .text-Rul {
+  color: #6f36a4;
 }
 .code .text-Rul {
   color: #6f36a4;
