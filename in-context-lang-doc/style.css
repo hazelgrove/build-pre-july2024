@@ -1249,6 +1249,22 @@ svg.tile-selected {
   color: #586e75;
   background-color: #f7ebc5; /*#fbebaa;*/
 }
+/* TODO seems like should be better way to ignore inconsistentcy colorings...*/
+.code .text-Pat.mono-inconsistent {
+  color: var(--pat-text-color);
+}
+
+.code .text-Exp.mono-inconsistent {
+  color: var(--exp-text-color);
+}
+
+.code .text-Typ.mono-inconsistent {
+  color: var(--typ-text-color);
+}
+
+.code .text-Rul.mono-inconsistent {
+  color: var(--rul-text-color);
+}
 
 .lang-doc .example {
   border-bottom: 1px dotted #a69461;
@@ -1280,33 +1296,16 @@ svg.tile-selected {
   transform-origin: top;
   transform: scaleY(0);
   transition: transform 0.07s ease;
-  background-color: #a69461;
-  color: #fefcf3;
+  background-color: var(--top_bar_icon_fill);
 }
 
 .specificity-options-menu .selected {
-  filter: brightness(1.2);
-}
-
-.lang-doc-button {
-  z-index: var(--type-inspector-z);
-  display: flex;
-  color: #8c795b;
-  /*border-radius: 0.3em;*/
-  border-radius: 1.1em 0 0 0;
-  /* border-right: 1px solid #daca9f; */
-  background-color: #fbecaa; /*#fefcf3;*/
-  align-items: center;
+  filter: brightness(0.8);
 }
 
 .lang-doc-button .icon {
-  background-color: #b69f79;
-  padding: 0.16em;
-  padding-left: 0.32em;
   display: flex;
-  filter: invert(0.9) sepia(1);
-  border-radius: 1.1em 0 0 0;
-  /*border-radius: 0 0.3em 0.3em 0;*/
+  cursor: pointer;
 }
 
 .lang-doc .section {
@@ -1373,6 +1372,18 @@ div.expandable-target {
   cursor: pointer;
   z-index: 40;
 }
+
+/* https://www.w3schools.com/howto/howto_css_arrows.asp */
+.arrow {
+  border: solid;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+}
+
+
 svg.expandable {
   fill: rgba(19, 17, 17, 0.067);
   stroke-dasharray: 1,1;
@@ -1401,7 +1412,7 @@ svg.expandable path {
 }
 
 .feedback .option.active {
-  background-color: #c7b480;
+  background-color: var(--top_bar_icon_fill);
 }
 
 /* DYNAMICS */
