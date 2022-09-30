@@ -1174,11 +1174,10 @@ svg.tile-selected {
   display: none;
   z-index: 20;
   position: fixed;
-  left: 0.3em;
-  /* top: 3.8em; */
-  bottom: 1.8em;
+  left: 0.2em;
+  bottom: 2.1em;
   min-width: 10em;
-  max-width: 12em;
+  max-width: 14em;
   max-height: 12em;
   overflow: auto;
   padding: 0.2em;
@@ -1189,13 +1188,11 @@ svg.tile-selected {
   border-left: 1px solid #daca9f;
   border-right: 1px solid #daca9f;
   background-color: #f7ebc5;
-  /*#fbebaa;*/
   box-shadow: 0px 3px 0px #77580255;
 }
 
 .context-entry {
   display: flex;
-  width: 10em;
   gap: 0.5em;
 }
 
@@ -1240,7 +1237,7 @@ svg.tile-selected {
   padding: 0.2em;
   padding-bottom: 1.5em;
   white-space: nowrap;
-  color: #586e75;
+  color: var(--light-text-color);
   background-color: #f7ebc5; /*#fbebaa;*/
 }
 
@@ -1305,7 +1302,7 @@ svg.tile-selected {
 }
 
 .specificity-options-menu .selected {
-  filter: brightness(0.8);
+  filter: brightness(0.9);
 }
 
 .lang-doc-button .icon {
@@ -1378,22 +1375,21 @@ div.expandable-target {
   z-index: 40;
 }
 
-/* https://www.w3schools.com/howto/howto_css_arrows.asp */
+/* https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow {
-  border: solid;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  transform: rotate(45deg);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--light-text-color);
 }
 
 
 svg.expandable {
   fill: rgba(19, 17, 17, 0.067);
-  stroke-dasharray: 1,1;
-  stroke: black;
-  stroke-width: 1.2px;
+  stroke-dasharray: 4,4;
+  stroke: var(--light-text-color);
+  stroke-width: 2px;
   /* mix-blend-mode: color; */
   z-index: var(--err-hole-z);
 }
