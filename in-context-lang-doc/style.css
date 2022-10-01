@@ -1192,6 +1192,7 @@ svg.tile-selected {
 }
 
 .context-entry {
+  cursor: pointer;
   display: flex;
   gap: 0.5em;
 }
@@ -1408,7 +1409,7 @@ svg.expandable path {
 }
 
 .feedback .option {
-  padding-left: 5px;
+  margin-left: 5px;
   cursor: pointer;
 }
 
