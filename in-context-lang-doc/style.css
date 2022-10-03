@@ -539,7 +539,7 @@ body {
 }
 
 .code-text {
-  position: absolute;
+  position: relative;
   z-index: var(--code-text-z);
   user-select: none;
   white-space: pre;
@@ -1374,6 +1374,10 @@ svg.tile-selected {
 div.expandable-target {
   cursor: pointer;
   z-index: 40;
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 /* https://css-tricks.com/snippets/css/css-triangle/ */
