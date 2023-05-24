@@ -237,8 +237,6 @@ svg {
 /* PAGE */
 
 #page {
-  overflow-x: auto;
-  overflow-y: auto;
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -246,6 +244,8 @@ svg {
   left: 0%;
   background-color: var(--light-page-color);
   color: var(--light-text-color);
+  display: flex;
+  flex-direction: column;
 }
 
 #font-specimen {
@@ -283,8 +283,6 @@ body {
 /* TOP BAR */
 
 #top-bar {
-  z-index: var(--top-bar-z);
-  position: fixed;
   box-sizing: border-box;
   width: 100%;
   min-width: fit-content;
@@ -444,7 +442,7 @@ body {
 .editor {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 3em;
+  padding-bottom: 1em;
 }
 
 .editor.column {
@@ -458,8 +456,7 @@ body {
 }
 
 .editor.single {
-  position: relative;
-  top: 5em;
+  padding-top: 2em;
   padding-left: 2em;
 }
 
@@ -695,7 +692,11 @@ body {
 
 /* TOKEN COLORS */
 
-.code .token.mono {
+.code .token.mono {}
+
+.code .token.mono-int-lit{
+  color: var(--exp-text-color);
+  text-decoration: underline;
 }
 
 .code .token.mono-string-lit {
@@ -948,7 +949,7 @@ svg.tile-selected {
   font-family: 'Fira Code';
 }
 
-.whitespace {
+.secondary {
   color: rgb(126, 80, 0);
   opacity: 20%;
 }
@@ -1201,10 +1202,8 @@ svg.tile-selected {
 
 .bottom-bar {
   z-index: var(--result-z);
-  position: fixed;
   /*max-height: 3.2em;
   overflow-y: auto;*/
-  bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
@@ -1212,7 +1211,7 @@ svg.tile-selected {
   gap: 1em;
   background-color: var(--top_bar_icon_fill);
   color: #fdf6e3;
-  /* padding-left: 0.2em;*/
+  justify-content: space-between;
 }
 
 .bottom-bar .cursor-inspector .gamma {
@@ -1223,6 +1222,223 @@ svg.tile-selected {
   padding-left: 0.5em;
   padding-right: 0.5em;
   color: var(--light-page-color);
+}
+
+.lang-doc {
+  z-index: 20;
+  position: fixed;
+  right: 1em;
+  /* top: 3.8em; */
+  /* bottom: 1.8em; */
+  width: 25vw;
+  height: 100vh;
+  overflow: auto;
+  padding: 0.2em;
+  padding-bottom: 1.5em;
+  white-space: nowrap;
+  color: var(--light-text-color);
+  background-color: #f7ebc5;
+  /*#fbebaa;*/
+}
+
+.comment {
+  color: #a0c1aa;
+}
+
+/* TODO slightly hacky way to be able to scroll to all content vertically - can't see scrollbars on the bottom even when there though...*/
+.lang-doc .content {
+  padding-bottom: 8em;
+}
+
+/* TODO seems like should be better way to ignore inconsistentcy colorings...*/
+.lang-doc .code .text-Pat.mono-inconsistent {
+  color: var(--pat-text-color);
+}
+
+.lang-doc .code .text-Exp.mono-inconsistent {
+  color: var(--exp-text-color);
+}
+
+.lang-doc .code .text-Typ.mono-inconsistent {
+  color: var(--typ-text-color);
+}
+
+.lang-doc .code .text-Rul.mono-inconsistent {
+  color: var(--rul-text-color);
+}
+
+.lang-doc .code .token.delim-inconsistent {
+  color: var(--delim-color);
+  font-weight: bold;
+}
+
+.lang-doc .example {
+  border-bottom: 1px dotted #a69461;
+}
+
+.lang-doc .example .code-text {
+  position: relative;
+}
+
+.lang-doc .example .ex-result {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.lang-doc .code-container {
+  margin-bottom: 0em;
+}
+
+.lang-doc .explanation {
+  white-space: normal;
+}
+
+.lang-doc .code-text {
+  position: relative;
+}
+
+.specificity-options-menu {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.07s ease;
+  background-color: var(--top_bar_icon_fill);
+}
+
+.specificity-options-menu .selected {
+  filter: brightness(0.9);
+}
+
+.lang-doc-button {
+  text-transform: none;
+}
+
+.lang-doc .top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25em;
+}
+
+.lang-doc .top-bar .close {
+  cursor: pointer;
+}
+
+.lang-doc .section {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.lang-doc .section .explanation-contents .code {
+  font-family: "Source Code Pro", monospace;
+}
+
+.lang-doc .section .section-title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.lang-doc .section .explanation-contents {
+  white-space: normal;
+}
+
+.highlight-blue {
+  background-color: rgb(180, 203, 240);
+}
+
+.highlight-code-blue {
+  fill: rgb(180, 203, 240);
+}
+
+.highlight-pink {
+  background-color: rgb(242, 177, 182);
+}
+
+.highlight-code-pink {
+  fill: rgb(242, 177, 182);
+}
+
+.highlight-teal {
+  background-color: rgb(127, 243, 245);
+}
+
+.highlight-code-teal {
+  fill: rgb(127, 243, 245);
+}
+
+.highlight-orange {
+  background-color: rgb(252, 186, 111);
+}
+
+.highlight-code-orange {
+  fill: rgb(252, 186, 111);
+}
+
+.highlight-purple {
+  background-color: rgb(212, 162, 252);
+}
+
+.highlight-code-purple {
+  fill: rgb(212, 162, 252);
+}
+
+.highlight-yellow {
+  background-color: rgb(247, 221, 134);
+}
+
+.highlight-code-yellow {
+  fill: rgb(247, 221, 134);
+}
+
+div.expandable-target {
+  cursor: pointer;
+  z-index: 40;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--light-text-color);
+}
+
+
+svg.expandable {
+  fill: rgba(19, 17, 17, 0.067);
+  stroke-dasharray: 4, 4;
+  stroke: var(--light-text-color);
+  stroke-width: 2px;
+  /* mix-blend-mode: color; */
+  z-index: var(--err-hole-z);
+}
+
+svg.expandable path {
+  vector-effect: non-scaling-stroke;
+}
+
+.feedback {
+  display: flex;
+  padding-top: 10px;
+}
+
+.feedback .message {
+  font-size: smaller;
+  font-style: italic;
+}
+
+.feedback .option {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.feedback .option.active {
+  background-color: var(--top_bar_icon_fill);
 }
 
 /* DYNAMICS */
@@ -1321,12 +1537,22 @@ svg.tile-selected {
   font-size: 75%;
   top: -10px;
 }
+
+.DHCode .NegativeExponent {
+  display: inline-block;
+  position: relative;
+  font-size: 75%;
+  top: -10px;
+}
+
 .DHCode .FailedCastDelim {
   color: red;
 }
+
 .DHCode .CastDecoration {
   background-color: rgba(150, 0, 255, 0.2);
 }
+
 .DHCode .FailedCastDecoration {
   background-color: rgba(255, 0, 0, 0.2);
 }
@@ -1647,4 +1873,20 @@ svg.tile-selected {
 /* File Select */
 .file-select-button {
   display: none;
+}
+
+/* clipboard shim */
+#clipboard-shim {
+  /* probably overkill for hiding it... */
+  position: fixed;
+  opacity: 0.01;
+  width: 1em;
+  height: 1em;
+  top: -1em;
+  left: -1em;
+}
+
+#main {
+  overflow: auto;
+  flex: 1;
 }
