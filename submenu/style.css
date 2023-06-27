@@ -146,6 +146,8 @@
 
   --result-z: 30;
 
+  --top-bar-height: 2.75em;
+
   --shadow-color: 44deg 28% 59%;
   --shadow-elevation-low:
     0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
@@ -286,11 +288,12 @@ body {
   box-sizing: border-box;
   width: 100%;
   min-width: fit-content;
-  padding: 0.75em;
-  padding-left: 3.5em;
+  padding-left: var(--top-bar-height);
+  height: var(--top-bar-height);
   /* to accommodate Hazel icon */
   display: flex;
   background-color: var(--light-page-color);
+  z-index: var(--top-bar-z);
 }
 
 #top-bar-content {
@@ -302,7 +305,6 @@ body {
 
 #top-left-bar {
   display: flex;
-  gap: 1em;
 }
 
 #top-right-bar {
@@ -312,8 +314,8 @@ body {
 }
 
 #top-bar .menu-icon {
-  width: 2.75em;
-  height: 2.75em;
+  width: var(--top-bar-height);
+  height: var(--top-bar-height);
   position: fixed;
   top: 0;
   left: 0;
@@ -337,9 +339,9 @@ body {
   transform: scaleY(0);
   transition: transform 0.07s ease;
   position: fixed;
-  top: 2.75em;
+  top: var(--top-bar-height);
   left: 0;
-  width: 2.75em;
+  width: var(--top-bar-height);
   /* padding-top: 1em; */
   /* padding-bottom: 1em; */
   /* gap: 1em; */
@@ -1881,7 +1883,8 @@ svg.expandable path {
   left: -1em;
 }
 
-.submenu {
+/* Submenu for #top-left-bar > .menu */
+#top-bar .menu .submenu {
   position: relative;
   display: flex;
   justify-content: center;
@@ -1891,13 +1894,13 @@ svg.expandable path {
   padding: 0.5em 0em;
 }
 
-.submenu-anchor {
+#top-bar .menu .submenu-anchor {
   height: 1.3em;
 }
 
-.submenu-content {
+#top-bar .menu .submenu-content {
   position: absolute;
-  left: 2.75em;
+  left: var(--top-bar-height);
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -1910,56 +1913,148 @@ svg.expandable path {
   background-color: #a69461;
 }
 
-.submenu:hover > .submenu-content {
+#top-bar .menu .submenu:hover > .submenu-content {
   transform: scaleX(1);
   width: fit-content;
   background: #7f7149;
 }
 
-.submenu:hover {
+#top-bar .menu .submenu:hover {
   background: #7f7149;
 }
 
-.submenu-text:hover,
-.submenu-button:hover {
+#top-bar .menu .submenu-text:hover,
+#top-bar .menu .submenu-button:hover {
   /* animation: wobble 0.6s ease 0s 1 normal forwards; */
   filter: brightness(1.2);
   transition: 0.6s;
 }
 
-.submenu-text,
-.submenu-button,
-.submenu-label {
+#top-bar .menu .submenu-text,
+#top-bar .menu .submenu-button,
+#top-bar .menu .submenu-label {
   color: var(--top_bar_icon_fill);
   width: fit-content;
   white-space: nowrap;
   height: 1.3em;
 }
 
-.submenu-switch,
-.submenu-button,
-.submenu-label {
+#top-bar .menu .submenu-switch,
+#top-bar .menu .submenu-button,
+#top-bar .menu .submenu-label {
   padding: 0.5em 0.875em;
 }
 
-.submenu-label {
+#top-bar .menu .submenu-label {
   cursor: default;
 }
 
-.submenu-button {
+#top-bar .menu .submenu-button {
   cursor: pointer;
 }
 
-.submenu-button.disabled {
+#top-bar .menu .submenu-button.disabled {
   opacity: 0.35;
 }
 
-.submenu-button.disabled:hover svg {
+#top-bar .menu .submenu-button.disabled:hover svg {
   transform: scale(100%);
   cursor: not-allowed;
 }
 
-.submenu-switch {
+#top-bar .menu .submenu-switch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Submenu for #top-left-bar > menu ~ * */
+#top-bar .menu ~ .submenu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: row;
+  padding: 0em 0.75em;
+}
+
+#top-bar .menu ~ .submenu .submenu-anchor {
+  /* width: 1.25em; */
+}
+
+#top-bar .menu ~ .submenu .submenu-content {
+  position: absolute;
+  top: var(--top-bar-height);
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.07s ease, background-color 0.07s ease;
+}
+
+#top-bar .menu ~ .submenu:hover .submenu-content {
+  transform: scaleY(1);
+  width: 100%;
+}
+
+#top-bar .menu ~ .submenu:hover .submenu-text,
+#top-bar .menu ~ .submenu:hover .submenu-button,
+#top-bar .menu ~ .submenu:hover .submenu-label,
+#top-bar .menu ~ .submenu:hover .submenu-switch {
+  background-color: var(--test-panel-bkg);
+}
+
+#top-bar .menu ~ .submenu:hover {
+  background-color: var(--light-page-color);
+}
+
+#top-bar .menu ~ .submenu .submenu-text:hover,
+#top-bar .menu ~ .submenu .submenu-button:hover {
+  /* animation: wobble 0.6s ease 0s 1 normal forwards; */
+  filter: brightness(1.2);
+  transition: 0.6s;
+}
+
+#top-bar .menu ~ .submenu .submenu-text,
+#top-bar .menu ~ .submenu .submenu-button,
+#top-bar .menu ~ .submenu .submenu-label {
+  color: var(--top_bar_icon_fill);
+  width: fit-content;
+  white-space: nowrap;
+  height: 1.3em;
+}
+
+#top-bar .menu ~ .submenu .submenu-switch,
+#top-bar .menu ~ .submenu .submenu-button,
+#top-bar .menu ~ .submenu .submenu-label {
+  padding: 0.5em 0.875em;
+}
+
+#top-bar .menu ~ .submenu .submenu-label {
+  cursor: default;
+}
+
+#top-bar .menu ~ .submenu .submenu-button {
+  cursor: pointer;
+}
+
+#top-bar .menu ~ .submenu .submenu-button.disabled {
+  opacity: 0.35;
+}
+
+#top-bar .menu ~ .submenu .submenu-button.disabled:hover svg {
+  transform: scale(100%);
+  cursor: not-allowed;
+}
+
+#top-bar .menu ~ .submenu .submenu-switch {
   display: flex;
   flex-direction: row;
   justify-content: center;
