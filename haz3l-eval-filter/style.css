@@ -1493,7 +1493,6 @@ svg.expandable path {
   min-height: 1.6em;
   overflow-y: auto;*/
   border-top: 1px dotted #d2c7ad;
-  border-radius: 0 0 0.4em 0.4em;
   /* padding-left: 1em; */
   padding: 0.5em;
   padding-left: 1.2em;
@@ -1535,6 +1534,35 @@ svg.expandable path {
   font-family: 'Helvetica Neue';
   font-size: 1rem;
   padding: 0.1em 0.4em 0.1em 0.4em;
+}
+
+.cell-result .icon:hover svg {
+  animation: wobble 0.6s ease 0s 1 normal forwards;
+  transform: scale(130%);
+  filter: brightness(1.1);
+}
+
+.cell-result .icon {
+  cursor: pointer;
+  color: var(--top_bar_icon_fill);
+  height: 20px;
+}
+
+.cell-result .icon svg {
+  fill: var(--top_bar_icon_fill);
+}
+
+.cell-result .icon.disabled {
+  opacity: 0.35;
+}
+
+.cell-result .icon.disabled:hover svg {
+  transform: scale(100%);
+  cursor: not-allowed;
+}
+
+.stepper-justification {
+  width: 260px;
 }
 
 /* DYNAMICS - DHEXP */
@@ -1944,9 +1972,16 @@ svg.expandable path {
   left: -1em;
 }
 
-.Steppable {
+.steppable {
   border: 1px var(--step-hole-color);
-  background-color:rgb(231, 255, 186);
+  background-color:rgb(232, 255, 196);
   margin: -1px;
   cursor: pointer;
+}
+
+
+.stepped {
+  border: 1px var(--step-hole-color);
+  background-color:#ddcda3;
+  margin: -1px;
 }
