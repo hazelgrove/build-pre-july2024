@@ -40877,7 +40877,7 @@ V=d[3],W=d[2],o=d[1],b1=function(b){var
 d=b[2],e=b[1][2],c=1,f=[3,o];return[0,function(f){if(19===e[0]){var
 b=e[1];if(19===d[0]){var
 c=d[1];switch(o){case
-0:return[19,b+b];case
+0:return[19,b+c];case
 1:return[19,b-c];case
 2:return[19,b*c];case
 3:return[19,Math.pow(b,c)];case
